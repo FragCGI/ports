@@ -1,0 +1,15 @@
+# description	: A calendar and scheduling application for the command line
+# homepage	: https://calcurse.org/
+# depends	: gcc autoconf-archive automake asciidoc gettext ncurses
+
+name=calcurse
+version=4.8.1
+release=1
+source="https://calcurse.org/files/$name-$version.tar.gz"
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
